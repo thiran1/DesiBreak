@@ -1,69 +1,103 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+const navigation = [
+  {
+    name: "Home",
+    path: "/"
+  },
+  {
+    name: "Discover India",
+    path: "/discover"
+  },
+  {
+    name: "About",
+    path: "/about"
+  },
+  {
+    name: "Franchise",
+    path: "/franchise"
+  },
+  {
+    name: "Contact",
+    path: "/contact"
+  }
+];
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Explore', path: '/explore' },
-    { name: 'About', path: '/about' },
-    { name: 'Franchise', path: '/franchise' },
-    { name: 'Contact', path: '/contact' },
-  ]
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-forest-green text-cream sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 font-serif text-2xl font-bold hover:text-mustard transition-colors">
-            <span>🥤</span>
-            <span>DesiBreak</span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-brand-border bg-brand-cream/90 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="hover:text-mustard transition-colors py-2"
-                aria-label={link.name}
-              >
-                {link.name}
-              </Link>
-            ))}
+        <Link to="/" className="flex items-center gap-3">
+
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary text-lg font-bold text-white">
+            DB
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-opacity-20 hover:bg-white transition-colors"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          <div>
+            <h1 className="font-heading text-2xl font-bold text-brand-primary">
+              Desi Break
+            </h1>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 animate-in fade-in slide-in-from-top-4 duration-200">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="block px-3 py-2 rounded-md hover:bg-opacity-20 hover:bg-white transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            <p className="text-xs tracking-[0.3em] uppercase text-brand-secondary">
+              Rooted in Tradition
+            </p>
           </div>
-        )}
+
+        </Link>
+
+        <nav className="hidden items-center gap-10 lg:flex">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive
+                    ? "text-brand-primary font-semibold"
+                    : "text-stone-600 hover:text-brand-primary"
+                }`
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="lg:hidden"
+        >
+          {open ? (
+            <X size={28} />
+          ) : (
+            <Menu size={28} />
+          )}
+        </button>
       </div>
-    </nav>
-  )
+
+      {open && (
+        <div className="border-t border-brand-border bg-brand-cream lg:hidden">
+          <div className="flex flex-col px-6 py-5">
+
+            {navigation.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-4 py-4 text-stone-700 transition hover:bg-white"
+              >
+                {item.name}
+              </NavLink>
+            ))}
+
+          </div>
+        </div>
+      )}
+    </header>
+  );
 }
