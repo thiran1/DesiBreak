@@ -18,7 +18,7 @@ export default function DrinkCard({ drink }) {
         />
 
         {drink.featured && (
-          <span className="absolute left-4 top-4 rounded-full bg-[#12372A] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+          <span className="absolute left-4 top-4 rounded-full bg-brand-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
             Featured
           </span>
         )}
@@ -26,11 +26,11 @@ export default function DrinkCard({ drink }) {
 
       <div className="space-y-4 p-6">
         <div>
-          <p className="text-sm font-medium uppercase tracking-widest text-[#C79A3B]">
+          <p className="text-sm font-medium uppercase tracking-widest text-brand-secondary">
             {drink.region}
           </p>
 
-          <h3 className="mt-2 text-2xl font-bold text-[#12372A]">
+          <h3 className="mt-2 text-2xl font-bold text-brand-primary">
             {drink.name}
           </h3>
 
@@ -48,7 +48,7 @@ export default function DrinkCard({ drink }) {
             {drink.category}
           </span>
 
-          <span className="font-semibold text-[#12372A] transition-all group-hover:translate-x-1">
+          <span className="font-semibold text-brand-primary transition-all group-hover:translate-x-1">
             Discover →
           </span>
         </div>
