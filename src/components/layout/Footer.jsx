@@ -1,109 +1,118 @@
-import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+import { Link } from "react-router-dom";
 
-export function Footer() {
-  const currentYear = new Date().getFullYear()
+const quickLinks = [
+  {
+    name: "Home",
+    path: "/"
+  },
+  {
+    name: "Discover India",
+    path: "/discover"
+  },
+  {
+    name: "About",
+    path: "/about"
+  },
+  {
+    name: "Franchise",
+    path: "/franchise"
+  },
+  {
+    name: "Contact",
+    path: "/contact"
+  }
+];
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-  ]
-
-  const footerLinks = [
-    { name: 'About Us', path: '/about' },
-    { name: 'Explore Drinks', path: '/explore' },
-    { name: 'Franchise', path: '/franchise' },
-    { name: 'Contact', path: '/contact' },
-  ]
-
+export default function Footer() {
   return (
-    <footer className="bg-forest-green text-cream mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+    <footer className="mt-24 border-t border-brand-border bg-brand-primary text-white">
+
+      <div className="mx-auto max-w-7xl px-6 py-20">
+
+        <div className="grid gap-14 lg:grid-cols-3">
+
           <div>
-            <h3 className="font-serif text-xl font-bold mb-4 flex items-center space-x-2">
-              <span>🥤</span>
-              <span>DesiBreak</span>
-            </h3>
-            <p className="text-cream/80 text-sm">
-              Authentic South Asian beverages bringing tradition to modern taste.
+
+            <div className="flex items-center gap-4">
+
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-secondary text-xl font-bold text-white">
+                DB
+              </div>
+
+              <div>
+                <h2 className="font-heading text-3xl">
+                  Desi Break
+                </h2>
+
+                <p className="text-sm text-stone-300">
+                  Rooted in Tradition. Made for Today.
+                </p>
+              </div>
+
+            </div>
+
+            <p className="mt-8 max-w-md leading-8 text-stone-300">
+              Desi Break is reviving India's forgotten beverages by bringing
+              together regional recipes, timeless traditions and authentic
+              flavours from every corner of the country.
             </p>
+
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Quick Links</h4>
-            <nav className="space-y-2 flex flex-col">
-              {footerLinks.map((link) => (
+
+            <h3 className="mb-6 text-xl font-semibold">
+              Explore
+            </h3>
+
+            <div className="flex flex-col gap-4">
+
+              {quickLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-cream/80 hover:text-mustard transition-colors text-sm"
+                  className="text-stone-300 transition hover:text-white"
                 >
                   {link.name}
                 </Link>
               ))}
-            </nav>
+
+            </div>
+
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Contact</h4>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-3">
-                <Phone size={18} />
-                <a href="tel:+1234567890" className="text-cream/80 hover:text-mustard transition-colors">
-                  +1 (234) 567-8900
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={18} />
-                <a href="mailto:info@desibreak.com" className="text-cream/80 hover:text-mustard transition-colors">
-                  info@desibreak.com
-                </a>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-cream/80">123 Desi Street, Heritage City, ST 12345</span>
-              </div>
-            </div>
+
+            <h3 className="mb-6 text-xl font-semibold">
+              Our Mission
+            </h3>
+
+            <p className="leading-8 text-stone-300">
+              Every region in India has a forgotten drink with a story worth
+              preserving. Our mission is to rediscover, revive and reintroduce
+              those beverages for future generations.
+            </p>
+
           </div>
 
-          {/* Social Links */}
-          <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="text-cream/80 hover:text-mustard transition-colors"
-                  >
-                    <Icon size={24} />
-                  </a>
-                )
-              })}
-            </div>
-          </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-cream/20 pt-8">
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-cream/80">
-            <p>&copy; {currentYear} DesiBreak. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-mustard transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-mustard transition-colors">Terms of Service</a>
-            </div>
-          </div>
+        <div className="my-12 h-px bg-white/10"></div>
+
+        <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+
+          <p className="text-sm text-stone-400">
+            © {new Date().getFullYear()} Desi Break. All Rights Reserved.
+          </p>
+
+          <p className="text-center font-heading text-xl text-brand-secondary">
+            Every Sip Tells A Story.
+          </p>
+
         </div>
+
       </div>
+
     </footer>
-  )
+  );
 }
