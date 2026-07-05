@@ -10,14 +10,14 @@ export default function RegionDetails() {
 
   if (!region) {
     return (
-      <div className="mx-auto max-w-7xl px-6 py-32 text-center">
+    <div className="mx-auto max-w-7xl px-6 py-32 text-center">
         <h1 className="font-heading text-5xl text-brand-primary">
           Region Not Found
         </h1>
 
         <Link
           to="/"
-          className="mt-8 inline-block rounded-full bg-brand-primary px-8 py-4 text-white"
+          className="mt-8 inline-block rounded-xl bg-brand-primary px-8 py-4 text-brand-cream font-semibold shadow-brand hover:bg-[#18482D] transition-colors"
         >
           Back Home
         </Link>

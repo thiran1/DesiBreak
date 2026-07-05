@@ -56,37 +56,37 @@ export function Contact() {
   ]
 
   return (
-    <div className="bg-cream">
+    <div className="bg-brand-light">
       {/* Header */}
-      <section className="bg-forest-green text-cream py-16">
+      <section className="bg-brand-primary text-brand-cream py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-serif text-5xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl max-w-3xl mx-auto text-cream/90">
+          <h1 className="font-heading text-5xl font-bold mb-6 text-brand-cream">Get In Touch</h1>
+          <p className="text-xl max-w-3xl mx-auto text-brand-cream/90 font-light leading-relaxed">
             Have questions or feedback? We'd love to hear from you. Reach out to our team!
           </p>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => {
               const Icon = info.icon
               return (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md border-t-4 border-mustard text-center">
+                <div key={index} className="bg-white p-6 rounded-xl border border-brand-border shadow-card border-t-4 border-t-brand-secondary text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="bg-forest-green p-3 rounded-lg text-cream">
+                    <div className="bg-brand-primary/10 p-3 rounded-xl text-brand-primary">
                       <Icon size={32} />
                     </div>
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-forest-green mb-3">{info.title}</h3>
+                  <h3 className="font-heading text-xl font-bold text-brand-primary mb-3">{info.title}</h3>
                   <div className="space-y-1 mb-3">
                     {info.details.map((detail, i) => (
-                      <p key={i} className="text-muted-brown/80 text-sm">{detail}</p>
+                      <p key={i} className="text-stone-600 text-sm">{detail}</p>
                     ))}
                   </div>
-                  <p className="text-mustard font-bold text-xs">{info.label}</p>
+                  <p className="text-brand-secondary font-bold text-xs">{info.label}</p>
                 </div>
               )
             })}
@@ -95,15 +95,15 @@ export function Contact() {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-16 bg-forest-green/5">
+      <section className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="font-serif text-3xl font-bold text-forest-green mb-6">Send us a Message</h2>
+            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
+              <h2 className="font-heading text-3xl font-bold text-brand-primary mb-6">Send us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-muted-brown font-bold mb-2">
+                  <label htmlFor="name" className="block text-brand-primary font-semibold mb-2">
                     Full Name
                   </label>
                   <input
@@ -113,13 +113,13 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-muted-brown/20 rounded-lg focus:outline-none focus:border-forest-green"
+                    className="w-full px-4 py-3 border border-brand-border rounded-xl focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-muted-brown font-bold mb-2">
+                  <label htmlFor="email" className="block text-brand-primary font-semibold mb-2">
                     Email Address
                   </label>
                   <input
@@ -129,13 +129,13 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-muted-brown/20 rounded-lg focus:outline-none focus:border-forest-green"
+                    className="w-full px-4 py-3 border border-brand-border rounded-xl focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-muted-brown font-bold mb-2">
+                  <label htmlFor="subject" className="block text-brand-primary font-semibold mb-2">
                     Subject
                   </label>
                   <input
@@ -145,13 +145,13 @@ export function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-muted-brown/20 rounded-lg focus:outline-none focus:border-forest-green"
+                    className="w-full px-4 py-3 border border-brand-border rounded-xl focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10"
                     placeholder="How can we help?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-muted-brown font-bold mb-2">
+                  <label htmlFor="message" className="block text-brand-primary font-semibold mb-2">
                     Message
                   </label>
                   <textarea
@@ -161,21 +161,21 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 border border-muted-brown/20 rounded-lg focus:outline-none focus:border-forest-green resize-none"
+                    className="w-full px-4 py-3 border border-brand-border rounded-xl focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10 resize-none"
                     placeholder="Your message..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-forest-green text-cream py-3 rounded-lg font-bold hover:bg-opacity-90 transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-brand-primary text-brand-cream py-4 rounded-xl font-semibold hover:bg-[#18482D] transition-all flex items-center justify-center gap-2 shadow-brand"
                 >
                   <Send size={20} />
                   Send Message
                 </button>
 
                 {submitted && (
-                  <div className="bg-green-100 text-green-800 p-4 rounded-lg text-center font-semibold">
+                  <div className="bg-brand-primary/10 text-brand-primary p-4 rounded-xl border border-brand-border text-center font-semibold">
                     ✓ Thank you! Your message has been sent successfully.
                   </div>
                 )}
@@ -183,40 +183,40 @@ export function Contact() {
             </div>
 
             {/* Info Section */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="font-serif text-3xl font-bold text-forest-green mb-6">Why Contact Us?</h2>
+            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
+              <h2 className="font-heading text-3xl font-bold text-brand-primary mb-6">Why Contact Us?</h2>
               
               <div className="space-y-6">
-                <div className="border-l-4 border-mustard pl-4">
-                  <h3 className="font-bold text-forest-green mb-2">📧 Customer Support</h3>
-                  <p className="text-muted-brown/80 text-sm">
+                <div className="border-l-4 border-brand-secondary pl-4">
+                  <h3 className="font-bold text-brand-primary mb-2">📧 Customer Support</h3>
+                  <p className="text-stone-600 text-sm">
                     Have questions about our products or orders? Our support team is here to help.
                   </p>
                 </div>
 
-                <div className="border-l-4 border-mustard pl-4">
-                  <h3 className="font-bold text-forest-green mb-2">🤝 Partnership Inquiries</h3>
-                  <p className="text-muted-brown/80 text-sm">
+                <div className="border-l-4 border-brand-secondary pl-4">
+                  <h3 className="font-bold text-brand-primary mb-2">🤝 Partnership Inquiries</h3>
+                  <p className="text-stone-600 text-sm">
                     Interested in collaborating or partnering with DesiBreak? Let's talk!
                   </p>
                 </div>
 
-                <div className="border-l-4 border-mustard pl-4">
-                  <h3 className="font-bold text-forest-green mb-2">🏪 Franchise Information</h3>
-                  <p className="text-muted-brown/80 text-sm">
+                <div className="border-l-4 border-brand-secondary pl-4">
+                  <h3 className="font-bold text-brand-primary mb-2">🏪 Franchise Information</h3>
+                  <p className="text-stone-600 text-sm">
                     Want to become a DesiBreak franchisee? Reach out to our franchise team.
                   </p>
                 </div>
 
-                <div className="border-l-4 border-mustard pl-4">
-                  <h3 className="font-bold text-forest-green mb-2">💬 Feedback & Suggestions</h3>
-                  <p className="text-muted-brown/80 text-sm">
+                <div className="border-l-4 border-brand-secondary pl-4">
+                  <h3 className="font-bold text-brand-primary mb-2">💬 Feedback & Suggestions</h3>
+                  <p className="text-stone-600 text-sm">
                     We value your feedback. Help us improve our products and services.
                   </p>
                 </div>
 
-                <div className="bg-mustard/10 p-4 rounded-lg border-l-4 border-mustard mt-6">
-                  <p className="text-muted-brown font-semibold text-sm">
+                <div className="bg-brand-secondary/10 p-4 rounded-xl border-l-4 border-brand-secondary mt-6">
+                  <p className="text-brand-primary font-semibold text-sm">
                     ⏱️ We typically respond within 24 hours during business days.
                   </p>
                 </div>
@@ -227,9 +227,9 @@ export function Contact() {
       </section>
 
       {/* Social Links */}
-      <section className="py-12 bg-forest-green text-cream text-center">
+      <section className="py-16 bg-brand-primary text-brand-cream text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-2xl font-bold mb-6">Follow Us on Social Media</h2>
+          <h2 className="font-heading text-2xl font-bold mb-6 text-brand-cream">Follow Us on Social Media</h2>
           <div className="flex justify-center gap-6 flex-wrap">
             {[
               { name: 'Facebook', icon: '👍', url: '#' },
@@ -240,7 +240,7 @@ export function Contact() {
               <a
                 key={index}
                 href={social.url}
-                className="flex items-center gap-2 hover:text-mustard transition-colors"
+                className="flex items-center gap-2 hover:text-brand-secondary text-brand-cream/80 transition-colors"
               >
                 <span className="text-2xl">{social.icon}</span>
                 <span className="font-bold">{social.name}</span>

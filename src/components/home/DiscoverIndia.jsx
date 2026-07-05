@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import regions from "../../data/regions";
+import { BRAND } from "../../config/brand";
 
 export default function DiscoverIndia() {
   return (
@@ -13,14 +14,14 @@ export default function DiscoverIndia() {
           </p>
 
           <h2 className="font-heading text-5xl text-brand-primary">
-            Taste India,
+            Discover Regional
             <br />
-            One Region At A Time.
+            Beverages from Across India.
           </h2>
 
           <p className="mt-8 text-lg leading-8 text-stone-600">
-            Every region has its own climate, traditions and forgotten beverages.
-            Begin your journey by selecting a state.
+            Every region has its own unique climate, traditions and authentic beverages.
+            Begin your journey by exploring a state.
           </p>
 
         </div>
@@ -32,18 +33,18 @@ export default function DiscoverIndia() {
             <Link
               key={region.slug}
               to={`/regions/${region.slug}`}
-              className="group rounded-3xl border border-brand-border bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-hover"
+              className="group rounded-xl border border-brand-border bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-hover"
             >
 
-              <div className="mb-8 h-48 overflow-hidden rounded-2xl bg-stone-100">
+              <div className="mb-8 h-48 overflow-hidden rounded-xl bg-stone-100">
 
                 <img
                   src={region.heroImage}
                   alt={region.state}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   onError={(e) => {
                     e.target.src =
-                      "https://placehold.co/800x600/F8F4EC/12372A?text=" +
+                      "https://placehold.co/800x600/F6F1E7/1F5C3A?text=" +
                       region.state;
                   }}
                 />
@@ -64,12 +65,12 @@ export default function DiscoverIndia() {
 
               <div className="mt-8 flex items-center justify-between">
 
-                <span className="rounded-full bg-brand-light px-4 py-2 text-sm text-brand-primary">
+                <span className="rounded-xl bg-brand-light px-4 py-2 text-sm text-brand-primary font-medium">
                   {region.drinkCount} Drink
                   {region.drinkCount > 1 ? "s" : ""}
                 </span>
 
-                <span className="font-semibold text-brand-primary">
+                <span className="font-semibold text-brand-primary transition-transform group-hover:translate-x-1">
                   Explore →
                 </span>
 

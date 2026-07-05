@@ -58,31 +58,31 @@ export function About() {
   ]
 
   return (
-    <div className="bg-cream">
+    <div className="bg-brand-light">
       {/* Header */}
-      <section className="bg-forest-green text-cream py-16">
+      <section className="bg-brand-primary text-brand-cream py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-serif text-5xl font-bold mb-6">Our Story</h1>
-          <p className="text-xl max-w-3xl mx-auto text-cream/90">
-            DesiBreak was born from a passion to share the authentic flavors of South Asia with the world. What started as a humble beverage stand has grown into a global movement celebrating cultural heritage through delicious, nourishing drinks.
+          <h1 className="font-heading text-5xl font-bold mb-6 text-brand-cream">Our Story</h1>
+          <p className="text-xl max-w-3xl mx-auto text-brand-cream/90 font-light leading-relaxed">
+            Desi Break was born from a passion to share the authentic flavors of South Asia with the world. What started as a humble beverage stand has grown into a global movement celebrating cultural heritage through delicious, nourishing drinks.
           </p>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-forest-green">
-              <h2 className="font-serif text-3xl font-bold text-forest-green mb-4">Our Mission</h2>
-              <p className="text-muted-brown/80 leading-relaxed text-lg">
+            <div className="bg-brand-light p-8 rounded-xl shadow-card border border-brand-border border-l-4 border-l-brand-primary">
+              <h2 className="font-heading text-3xl font-bold text-brand-primary mb-4">Our Mission</h2>
+              <p className="text-stone-600 leading-relaxed text-lg">
                 To preserve and celebrate South Asian culinary heritage by crafting authentic, high-quality beverages that nourish the body and soul. We believe every sip should tell a story of tradition, culture, and quality.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-md border-l-4 border-terracotta">
-              <h2 className="font-serif text-3xl font-bold text-forest-green mb-4">Our Vision</h2>
-              <p className="text-muted-brown/80 leading-relaxed text-lg">
-                To become the world's leading brand for authentic South Asian beverages, recognized for our commitment to quality, sustainability, and cultural preservation. We envision DesiBreak in every home and café globally.
+            <div className="bg-brand-light p-8 rounded-xl shadow-card border border-brand-border border-l-4 border-l-brand-secondary">
+              <h2 className="font-heading text-3xl font-bold text-brand-primary mb-4">Our Vision</h2>
+              <p className="text-stone-600 leading-relaxed text-lg">
+                To become the world's leading brand for authentic South Asian beverages, recognized for our commitment to quality, sustainability, and cultural preservation. We envision Desi Break in every home and café globally.
               </p>
             </div>
           </div>
@@ -90,21 +90,21 @@ export function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-forest-green/5">
+      <section className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-4xl font-bold text-center text-forest-green mb-12">Our Core Values</h2>
+          <h2 className="font-heading text-4xl font-bold text-center text-brand-primary mb-12">Our Core Values</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
               const Icon = value.icon
               return (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
+                <div key={index} className="bg-white p-6 rounded-xl border border-brand-border shadow-card text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="bg-mustard p-3 rounded-lg text-forest-green">
+                    <div className="bg-brand-primary/10 p-3 rounded-xl text-brand-primary">
                       <Icon size={32} />
                     </div>
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-forest-green mb-3">{value.title}</h3>
-                  <p className="text-muted-brown/80 text-sm leading-relaxed">{value.description}</p>
+                  <h3 className="font-heading text-xl font-bold text-brand-primary mb-3">{value.title}</h3>
+                  <p className="text-stone-600 text-sm leading-relaxed">{value.description}</p>
                 </div>
               )
             })}
@@ -113,22 +113,22 @@ export function About() {
       </section>
 
       {/* Journey Timeline */}
-      <section className="py-16">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-4xl font-bold text-center text-forest-green mb-12">Our Journey</h2>
+          <h2 className="font-heading text-4xl font-bold text-center text-brand-primary mb-12">Our Journey</h2>
           <div className="relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-mustard transform -translate-x-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-brand-highlight transform -translate-x-1/2"></div>
             <div className="space-y-8">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className="md:w-1/2 md:pr-8 md:text-right">
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-serif text-2xl font-bold text-mustard mb-2">{milestone.year}</h3>
-                      <p className="text-muted-brown text-lg">{milestone.event}</p>
+                    <div className="bg-brand-light p-6 rounded-xl border border-brand-border shadow-card">
+                      <h3 className="font-heading text-2xl font-bold text-brand-secondary mb-2">{milestone.year}</h3>
+                      <p className="text-brand-primary/80 text-lg">{milestone.event}</p>
                     </div>
                   </div>
                   <div className="hidden md:flex md:w-1/2 md:pl-8 items-center justify-center">
-                    <div className="w-6 h-6 bg-mustard rounded-full border-4 border-cream shadow-md"></div>
+                    <div className="w-6 h-6 bg-brand-highlight rounded-full border-4 border-brand-cream shadow-card"></div>
                   </div>
                 </div>
               ))}
@@ -138,19 +138,19 @@ export function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-forest-green/5">
+      <section className="py-20 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-4xl font-bold text-center text-forest-green mb-12">Our Leadership Team</h2>
+          <h2 className="font-heading text-4xl font-bold text-center text-brand-primary mb-12">Our Leadership Team</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                <div className="bg-gradient-to-br from-forest-green to-muted-brown h-40 flex items-center justify-center text-5xl">
+              <div key={index} className="bg-white rounded-xl border border-brand-border overflow-hidden shadow-card hover:shadow-hover transition-all">
+                <div className="bg-brand-primary/10 h-40 flex items-center justify-center text-5xl">
                   👤
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-forest-green mb-1">{member.name}</h3>
-                  <p className="text-mustard font-bold mb-3">{member.role}</p>
-                  <p className="text-muted-brown/80 text-sm leading-relaxed">{member.bio}</p>
+                  <h3 className="font-heading text-xl font-bold text-brand-primary mb-1">{member.name}</h3>
+                  <p className="text-brand-secondary font-bold mb-3">{member.role}</p>
+                  <p className="text-stone-600 text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </div>
             ))}
@@ -159,24 +159,24 @@ export function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-forest-green to-muted-brown text-cream">
+      <section className="py-20 bg-brand-primary text-brand-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-              <p className="text-cream/80">Markets Served</p>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-brand-secondary">50+</div>
+              <p className="text-brand-cream/80">Markets Served</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">1M+</div>
-              <p className="text-cream/80">Happy Customers</p>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-brand-secondary">1M+</div>
+              <p className="text-brand-cream/80">Happy Customers</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
-              <p className="text-cream/80">Natural Ingredients</p>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-brand-secondary">100%</div>
+              <p className="text-brand-cream/80">Natural Ingredients</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">15+</div>
-              <p className="text-cream/80">Drink Varieties</p>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-brand-secondary">15+</div>
+              <p className="text-brand-cream/80">Drink Varieties</p>
             </div>
           </div>
         </div>

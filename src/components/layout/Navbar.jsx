@@ -1,29 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
-const navigation = [
-  {
-    name: "Home",
-    path: "/"
-  },
-  {
-    name: "Discover India",
-    path: "/discover"
-  },
-  {
-    name: "About",
-    path: "/about"
-  },
-  {
-    name: "Franchise",
-    path: "/franchise"
-  },
-  {
-    name: "Contact",
-    path: "/contact"
-  }
-];
+import { BRAND } from "../../config/brand";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -40,26 +18,26 @@ export default function Navbar() {
 
           <div>
             <h1 className="font-heading text-2xl font-bold text-brand-primary">
-              Desi Break
+              {BRAND.name}
             </h1>
 
             <p className="text-xs tracking-[0.3em] uppercase text-brand-secondary">
-              Rooted in Tradition
+              {BRAND.positioning}
             </p>
           </div>
 
         </Link>
 
         <nav className="hidden items-center gap-10 lg:flex">
-          {navigation.map((item) => (
+          {BRAND.navigation.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `transition duration-200 ${
+                `py-2 transition duration-200 border-b-2 ${
                   isActive
-                    ? "text-brand-primary font-semibold"
-                    : "text-stone-600 hover:text-brand-primary"
+                    ? "text-brand-primary font-semibold border-brand-secondary"
+                    : "text-brand-primary/70 border-transparent hover:text-brand-primary"
                 }`
               }
             >
@@ -70,7 +48,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden"
+          className="lg:hidden text-brand-primary"
         >
           {open ? (
             <X size={28} />
@@ -84,12 +62,18 @@ export default function Navbar() {
         <div className="border-t border-brand-border bg-brand-cream lg:hidden">
           <div className="flex flex-col px-6 py-5">
 
-            {navigation.map((item) => (
+            {BRAND.navigation.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-4 text-stone-700 transition hover:bg-white"
+                className={({ isActive }) =>
+                  `rounded-xl px-4 py-4 transition ${
+                    isActive
+                      ? "text-brand-primary font-semibold bg-white shadow-sm border-l-4 border-brand-secondary"
+                      : "text-brand-primary/80 hover:bg-white/40"
+                  }`
+                }
               >
                 {item.name}
               </NavLink>

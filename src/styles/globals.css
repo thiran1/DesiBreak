@@ -1,101 +1,291 @@
+/* ============================================================
+   DESI BREAK — GLOBAL DESIGN SYSTEM
+   Official Brand: Heritage Cream + Forest Green + Terracotta + Gold
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
-
-/* CSS Variables */
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
-  --forest-green: #12372A;
-  --cream: #F8F4EC;
-  --terracotta: #A44A3F;
-  --mustard: #C79A3B;
-  --muted-brown: #6D4C41;
+  /* Brand Colors */
+  --color-primary:    #1F5C3A;
+  --color-background: #F6F1E7;
+  --color-accent:     #B85C38;
+  --color-highlight:  #D4A017;
+
+  /* Semantic aliases */
+  --color-text:       var(--color-primary);
+  --color-text-light: var(--color-background);
+
+  /* Legacy support */
+  --forest-green: var(--color-primary);
+  --cream:        var(--color-background);
+  --terracotta:   var(--color-accent);
+  --mustard:      var(--color-highlight);
+
+  /* Spacing scale: 8 16 24 40 64 96 */
+  --space-2:   8px;
+  --space-4:   16px;
+  --space-6:   24px;
+  --space-10:  40px;
+  --space-16:  64px;
+  --space-24:  96px;
+
+  /* Border */
+  --radius:        12px;
+  --radius-sm:      8px;
+  --radius-lg:     20px;
+  --border-subtle: rgba(31, 92, 58, 0.12);
+
+  /* Shadow */
+  --shadow:       0 4px 12px rgba(31, 92, 58, 0.08);
+  --shadow-hover: 0 8px 24px rgba(31, 92, 58, 0.14);
+
+  /* Animation */
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+  --ease:            cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* HTML & Body */
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #F8F4EC;
-  color: #12372A;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', serif;
+  color: var(--color-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px;
+/* Display — hero titles */
+.text-display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
-::-webkit-scrollbar-track {
-  background: #F8F4EC;
+/* Heading 1 */
+.text-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #6D4C41;
-  border-radius: 4px;
+/* Heading 2 */
+.text-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #12372A;
+/* Body */
+.text-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
-/* Focus Styles for Accessibility */
-:focus-visible {
-  outline: 2px solid #12372A;
-  outline-offset: 2px;
+/* Caption */
+.text-caption {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* Selection */
-::selection {
-  background-color: #12372A;
-  color: #F8F4EC;
+p {
+  max-width: 68ch;
 }
 
-/* Links */
 a {
-  color: #12372A;
+  color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--duration-fast) var(--ease);
 }
 
 a:hover {
-  color: #C79A3B;
+  color: var(--color-accent);
 }
 
-/* Form Elements */
-input,
-textarea,
-select {
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: var(--radius);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ============================================================
+   FOCUS & SELECTION
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+input, textarea, select {
   font-family: inherit;
+  background-color: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  transition: border-color var(--duration-fast) var(--ease),
+              box-shadow var(--duration-fast) var(--ease);
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #12372A;
-  box-shadow: 0 0 0 3px rgba(18, 55, 42, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(31, 92, 58, 0.10);
 }
 
-/* Button Reset */
 button {
-  border: none;
-  background: none;
-  cursor: pointer;
   font-family: inherit;
+  cursor: pointer;
 }
 
-/* Smooth Transitions */
-* {
-  transition-property: color, background-color, border-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+/* ============================================================
+   ANIMATION UTILITIES
+   ============================================================ */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn var(--duration-slow) var(--ease) both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--duration-slow) var(--ease) both;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--duration-normal) var(--ease) both;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   PREFERS-REDUCED-MOTION — Accessibility
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   SECTION UTILITIES
+   ============================================================ */
+.section-padding {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.section-padding-sm {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Divider separator using gold */
+.brand-divider {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-highlight);
+  border-radius: 2px;
+  margin-block: var(--space-4);
+}
+
+/* Card baseline */
+.brand-card {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--duration-normal) var(--ease),
+              transform var(--duration-normal) var(--ease);
+}
+
+.brand-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }

@@ -1,23 +1,24 @@
 import { Heart, Leaf, MapPinned } from "lucide-react";
+import { BRAND } from "../../config/brand";
 
 const features = [
   {
     icon: MapPinned,
-    title: "Rooted Across India",
+    title: "Regional Excellence",
     description:
-      "Every beverage comes from a real region with a real story, celebrating India's incredible diversity."
+      "Every beverage is rooted in a real region with a real story, celebrating the incredible diversity of Indian culture and tradition."
   },
   {
     icon: Leaf,
-    title: "Authentic Ingredients",
+    title: "Authentically Crafted",
     description:
-      "Traditional recipes prepared with carefully selected ingredients while respecting their original heritage."
+      "Traditional recipes prepared with carefully selected ingredients, honoring the heritage and expertise of local craftspeople."
   },
   {
     icon: Heart,
-    title: "More Than A Drink",
+    title: "Stories Worth Sharing",
     description:
-      "Every sip carries memories, culture and traditions that deserve to be preserved for future generations."
+      "Every sip connects you to the people, places, and traditions that make India's beverage culture truly unique and remarkable."
   }
 ];
 
@@ -34,15 +35,11 @@ export default function WhyDesiBreak() {
           </p>
 
           <h2 className="font-heading text-5xl text-brand-primary">
-            We're Not Just Serving Drinks.
+            More Than a Beverage Brand
           </h2>
 
           <p className="mt-8 text-lg leading-8 text-stone-600">
-            India has hundreds of regional beverages that once formed part of
-            everyday life. Many of them are slowly disappearing.
-
-            Desi Break exists to rediscover these forgotten drinks and bring
-            them back with authenticity, respect and pride.
+            {BRAND.mission}
           </p>
 
         </div>
@@ -55,10 +52,10 @@ export default function WhyDesiBreak() {
             return (
               <div
                 key={feature.title}
-                className="rounded-3xl border border-brand-border bg-brand-light p-10 transition duration-300 hover:-translate-y-2 hover:shadow-hover"
+                className="rounded-xl border border-brand-border bg-brand-light p-10 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-hover"
               >
 
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-primary text-white">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary">
                   <Icon size={30} />
                 </div>
 

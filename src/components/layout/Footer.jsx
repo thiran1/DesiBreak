@@ -1,31 +1,9 @@
 import { Link } from "react-router-dom";
-
-const quickLinks = [
-  {
-    name: "Home",
-    path: "/"
-  },
-  {
-    name: "Discover India",
-    path: "/discover"
-  },
-  {
-    name: "About",
-    path: "/about"
-  },
-  {
-    name: "Franchise",
-    path: "/franchise"
-  },
-  {
-    name: "Contact",
-    path: "/contact"
-  }
-];
+import { BRAND } from "../../config/brand";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-brand-border bg-brand-primary text-white">
+    <footer className="mt-24 border-t border-brand-border bg-brand-primary text-brand-cream">
 
       <div className="mx-auto max-w-7xl px-6 py-20">
 
@@ -35,43 +13,41 @@ export default function Footer() {
 
             <div className="flex items-center gap-4">
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-secondary text-xl font-bold text-white">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-secondary text-xl font-bold text-brand-cream shadow-sm">
                 DB
               </div>
 
               <div>
-                <h2 className="font-heading text-3xl">
-                  Desi Break
+                <h2 className="font-heading text-3xl text-brand-cream">
+                  {BRAND.name}
                 </h2>
 
-                <p className="text-sm text-stone-300">
-                  Rooted in Tradition. Made for Today.
+                <p className="text-sm text-brand-cream/70">
+                  {BRAND.positioning}
                 </p>
               </div>
 
             </div>
 
-            <p className="mt-8 max-w-md leading-8 text-stone-300">
-              Desi Break is reviving India's forgotten beverages by bringing
-              together regional recipes, timeless traditions and authentic
-              flavours from every corner of the country.
+            <p className="mt-8 max-w-md leading-8 text-brand-cream/80">
+              {BRAND.footer.description}
             </p>
 
           </div>
 
           <div>
 
-            <h3 className="mb-6 text-xl font-semibold">
+            <h3 className="mb-6 text-xl font-semibold text-brand-cream">
               Explore
             </h3>
 
             <div className="flex flex-col gap-4">
 
-              {quickLinks.map((link) => (
+              {BRAND.navigation.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-stone-300 transition hover:text-white"
+                  className="text-brand-cream/80 transition hover:text-brand-cream"
                 >
                   {link.name}
                 </Link>
@@ -83,30 +59,28 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="mb-6 text-xl font-semibold">
+            <h3 className="mb-6 text-xl font-semibold text-brand-cream">
               Our Mission
             </h3>
 
-            <p className="leading-8 text-stone-300">
-              Every region in India has a forgotten drink with a story worth
-              preserving. Our mission is to rediscover, revive and reintroduce
-              those beverages for future generations.
+            <p className="leading-8 text-brand-cream/80">
+              {BRAND.mission}
             </p>
 
           </div>
 
         </div>
 
-        <div className="my-12 h-px bg-white/10"></div>
+        <div className="my-12 h-px bg-brand-cream/10"></div>
 
         <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
 
-          <p className="text-sm text-stone-400">
-            © {new Date().getFullYear()} Desi Break. All Rights Reserved.
+          <p className="text-sm text-brand-cream/60">
+            {BRAND.footer.copyright}
           </p>
 
-          <p className="text-center font-heading text-xl text-brand-secondary">
-            Every Sip Tells A Story.
+          <p className="text-center font-heading text-xl text-brand-highlight">
+            {BRAND.tagline}
           </p>
 
         </div>

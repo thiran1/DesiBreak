@@ -11,7 +11,7 @@ export default function DrinkGrid({
       {(title || subtitle) && (
         <div className="mb-10 text-center">
           {title && (
-            <h2 className="text-4xl font-bold text-[#12372A]">
+            <h2 className="text-4xl font-bold text-brand-primary font-heading">
               {title}
             </h2>
           )}
@@ -25,8 +25,8 @@ export default function DrinkGrid({
       )}
 
       {drinks.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-stone-300 py-20 text-center">
-          <h3 className="text-xl font-semibold text-stone-600">
+        <div className="rounded-xl border border-dashed border-brand-border py-20 text-center bg-white shadow-brand">
+          <h3 className="text-xl font-semibold text-brand-primary/80">
             {emptyMessage}
           </h3>
         </div>

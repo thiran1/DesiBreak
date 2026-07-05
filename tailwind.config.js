@@ -7,26 +7,35 @@ export default {
   extend: {
     colors: {
       brand: {
-        primary: "#12372A",
-        secondary: "#C79A3B",
-        cream: "#F8F4EC",
-        terracotta: "#A44A3F",
-        brown: "#6D4C41",
-        muted: "#6B7280",
-        light: "#FAF8F3",
-        border: "#E7E0D5"
-      }
+        primary: "var(--color-primary)",
+        secondary: "var(--color-accent)", // Terracotta for highlights
+        accent: "var(--color-accent)",   // CTA sections (Terracotta)
+        cream: "var(--color-background)",
+        terracotta: "var(--color-accent)",
+        brown: "var(--color-accent)",
+        muted: "rgba(31, 92, 58, 0.6)",
+        light: "var(--color-background)",
+        border: "rgba(31, 92, 58, 0.12)",
+        highlight: "var(--color-highlight)" // Muted Gold
+      },
+      // Support direct utility names
+      "forest-green": "var(--color-primary)",
+      cream: "var(--color-background)",
+      terracotta: "var(--color-accent)",
+      mustard: "var(--color-highlight)"
     },
 
     borderRadius: {
-      xl: "1rem",
-      "2xl": "1.5rem",
-      "3xl": "2rem"
+      xl: "var(--radius)",
+      "2xl": "var(--radius)",
+      "3xl": "var(--radius)",
+      brand: "var(--radius)"
     },
 
     boxShadow: {
-      card: "0 8px 30px rgba(0,0,0,0.08)",
-      hover: "0 20px 45px rgba(0,0,0,0.12)"
+      card: "var(--shadow)",
+      hover: "0 6px 16px rgba(31, 92, 58, 0.12)", // Soft hover shadow
+      brand: "var(--shadow)"
     },
 
     fontFamily: {

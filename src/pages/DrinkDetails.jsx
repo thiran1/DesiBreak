@@ -89,11 +89,11 @@ export function DrinkDetails() {
   const [isFavorite, setIsFavorite] = React.useState(false)
 
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-brand-light min-h-screen">
       {/* Header */}
-      <section className="bg-forest-green text-cream py-8">
+      <section className="bg-brand-primary text-brand-cream py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/explore" className="inline-flex items-center gap-2 hover:text-mustard transition-colors mb-4">
+          <Link to="/explore" className="inline-flex items-center gap-2 hover:text-brand-secondary text-brand-cream/80 transition-colors">
             <ArrowLeft size={20} />
             Back to Drinks
           </Link>
@@ -105,46 +105,46 @@ export function DrinkDetails() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Image */}
-            <div className="bg-gradient-to-br from-forest-green to-muted-brown rounded-lg p-12 text-center h-96 flex items-center justify-center">
+            <div className="bg-brand-primary/10 rounded-xl p-12 text-center h-96 flex items-center justify-center border border-brand-border">
               <div className="text-9xl">{drink.image}</div>
             </div>
 
             {/* Details */}
             <div>
               <div className="mb-6">
-                <span className="bg-mustard text-forest-green px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
+                <span className="bg-brand-secondary text-brand-cream px-4 py-2 rounded-xl text-sm font-semibold mb-4 inline-block shadow-sm">
                   {drink.category}
                 </span>
-                <h1 className="font-serif text-5xl font-bold text-forest-green mb-4">
+                <h1 className="font-heading text-5xl font-bold text-brand-primary mb-4">
                   {drink.name}
                 </h1>
-                <p className="text-xl text-muted-brown mb-6">
+                <p className="text-xl text-stone-600 mb-6 leading-relaxed">
                   {drink.description}
                 </p>
               </div>
 
               {/* Price */}
-              <div className="bg-white p-6 rounded-lg mb-6 border-2 border-forest-green/10">
+              <div className="bg-white p-6 rounded-xl mb-6 border border-brand-border shadow-card">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl font-bold text-forest-green">${drink.price}</span>
-                  <span className="text-muted-brown/60 line-through">${(drink.price * 1.2).toFixed(2)}</span>
+                  <span className="text-4xl font-bold text-brand-primary">${drink.price}</span>
+                  <span className="text-brand-primary/40 line-through text-sm">${(drink.price * 1.2).toFixed(2)}</span>
                 </div>
-                <button className="w-full bg-forest-green text-cream py-3 rounded-lg font-bold hover:bg-opacity-90 transition-colors mb-3">
+                <button className="w-full bg-brand-primary text-brand-cream py-4 rounded-xl font-semibold hover:bg-[#18482D] transition-colors mb-3 shadow-brand">
                   Add to Cart
                 </button>
                 <div className="flex gap-3">
                   <button
                     onClick={() => setIsFavorite(!isFavorite)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-bold transition-colors ${
+                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium transition-colors ${
                       isFavorite
-                        ? 'bg-red-100 text-red-600'
-                        : 'bg-gray-100 text-muted-brown hover:bg-gray-200'
+                        ? 'bg-brand-secondary/15 text-brand-secondary'
+                        : 'bg-brand-light text-brand-primary hover:bg-brand-primary/5 border border-brand-border'
                     }`}
                   >
                     <Heart size={20} fill={isFavorite ? 'currentColor' : 'none'} />
                     {isFavorite ? 'Saved' : 'Save'}
                   </button>
-                  <button className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-bold bg-gray-100 text-muted-brown hover:bg-gray-200 transition-colors">
+                  <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium bg-brand-light text-brand-primary hover:bg-brand-primary/5 border border-brand-border transition-colors">
                     <Share2 size={20} />
                     Share
                   </button>
@@ -153,17 +153,17 @@ export function DrinkDetails() {
 
               {/* Quick Info */}
               <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white p-4 rounded-lg text-center border border-forest-green/10">
-                  <div className="text-muted-brown/60 text-sm mb-1">Prep Time</div>
-                  <div className="font-bold text-forest-green">{drink.prepTime}</div>
+                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
+                  <div className="text-brand-primary/60 text-xs mb-1">Prep Time</div>
+                  <div className="font-bold text-brand-primary">{drink.prepTime}</div>
                 </div>
-                <div className="bg-white p-4 rounded-lg text-center border border-forest-green/10">
-                  <div className="text-muted-brown/60 text-sm mb-1">Serving</div>
-                  <div className="font-bold text-forest-green">{drink.servingSize}</div>
+                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
+                  <div className="text-brand-primary/60 text-xs mb-1">Serving</div>
+                  <div className="font-bold text-brand-primary">{drink.servingSize}</div>
                 </div>
-                <div className="bg-white p-4 rounded-lg text-center border border-forest-green/10">
-                  <div className="text-muted-brown/60 text-sm mb-1">Calories</div>
-                  <div className="font-bold text-forest-green">{drink.calories}</div>
+                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
+                  <div className="text-brand-primary/60 text-xs mb-1">Calories</div>
+                  <div className="font-bold text-brand-primary">{drink.calories}</div>
                 </div>
               </div>
             </div>
@@ -171,19 +171,19 @@ export function DrinkDetails() {
 
           {/* Description and Benefits */}
           <div className="grid md:grid-cols-2 gap-8 mt-16">
-            <div className="bg-white p-8 rounded-lg border border-forest-green/10">
-              <h2 className="font-serif text-2xl font-bold text-forest-green mb-4">About This Drink</h2>
-              <p className="text-muted-brown/80 leading-relaxed mb-6">
+            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
+              <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">About This Drink</h2>
+              <p className="text-stone-600 leading-relaxed mb-6">
                 {drink.fullDescription}
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-forest-green/10">
-              <h2 className="font-serif text-2xl font-bold text-forest-green mb-4">Health Benefits</h2>
-              <ul className="space-y-3">
+            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
+              <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">Health Benefits</h2>
+              <ul className="space-y-4">
                 {drink.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-3 text-muted-brown/80">
-                    <span className="flex-shrink-0 w-6 h-6 bg-mustard text-forest-green rounded-full flex items-center justify-center text-sm font-bold">
+                  <li key={index} className="flex items-center gap-3 text-stone-600">
+                    <span className="flex-shrink-0 w-5 h-5 bg-brand-primary text-brand-cream rounded-xl flex items-center justify-center text-xs font-bold shadow-sm">
                       ✓
                     </span>
                     {benefit}
@@ -194,12 +194,12 @@ export function DrinkDetails() {
           </div>
 
           {/* Ingredients */}
-          <div className="mt-8 bg-white p-8 rounded-lg border border-forest-green/10">
-            <h2 className="font-serif text-2xl font-bold text-forest-green mb-4">Ingredients</h2>
+          <div className="mt-8 bg-white p-8 rounded-xl border border-brand-border shadow-card">
+            <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">Ingredients</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {drink.ingredients.map((ingredient, index) => (
-                <div key={index} className="bg-cream p-4 rounded-lg text-center border border-forest-green/10">
-                  <p className="text-muted-brown font-semibold">{ingredient}</p>
+                <div key={index} className="bg-brand-light p-4 rounded-xl text-center border border-brand-border">
+                  <p className="text-brand-primary font-semibold">{ingredient}</p>
                 </div>
               ))}
             </div>

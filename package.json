@@ -10,17 +10,18 @@
     "lint": "eslint src --ext js,jsx"
   },
   "dependencies": {
+    "framer-motion": "^10.16.4",
+    "heroicons": "^2.0.18",
+    "lucide-react": "^1.22.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^6.20.0",
-    "framer-motion": "^10.16.4",
-    "heroicons": "^2.0.18"
+    "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.8",
-    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
-    "autoprefixer": "^10.4.16"
+    "tailwindcss": "^3.3.6",
+    "vite": "^5.0.8"
   }
 }
