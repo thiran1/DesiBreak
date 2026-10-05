@@ -201,12 +201,14 @@ export function Contact() {
                   </p>
                 </div>
 
-                <div className="border-l-4 border-brand-secondary pl-4">
-                  <h3 className="font-bold text-brand-primary mb-2">🏪 Franchise Information</h3>
-                  <p className="text-stone-600 text-sm">
-                    Want to become a DesiBreak franchisee? Reach out to our franchise team.
-                  </p>
-                </div>
+                {false && (
+                  <div className="border-l-4 border-brand-secondary pl-4">
+                    <h3 className="font-bold text-brand-primary mb-2">🏪 Franchise Information</h3>
+                    <p className="text-stone-600 text-sm">
+                      Want to become a DesiBreak franchisee? Reach out to our franchise team.
+                    </p>
+                  </div>
+                )}
 
                 <div className="border-l-4 border-brand-secondary pl-4">
                   <h3 className="font-bold text-brand-primary mb-2">💬 Feedback & Suggestions</h3>

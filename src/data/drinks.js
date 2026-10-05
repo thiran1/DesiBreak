@@ -5,6 +5,7 @@ const drinks = [
     name: "Ragi Ambali",
     tagline: "Ancient Millet Nutrition",
     region: "Telangana",
+    state: "Telangana",
     city: "Hyderabad",
     category: "Ambali",
     served: "Cold",
@@ -17,6 +18,11 @@ const drinks = [
 
     shortDescription:
       "A naturally fermented finger millet drink packed with nutrition and probiotics.",
+
+    story:
+      "Ragi Ambali has been part of everyday food traditions across Telangana and Karnataka, especially in homes and farming communities where a cooling, filling drink belongs at the start of a long day.",
+
+    tasteProfile: ["Earthy", "Tangy", "Cooling", "Lightly spiced"],
 
     longDescription:
       "Ragi Ambali has been consumed for generations across Telangana and Karnataka. Made using finger millet, curd and water, it is cooling, filling and highly nutritious.",
@@ -61,6 +67,7 @@ const drinks = [
     name: "Jigarthanda",
     tagline: "That Which Cools The Heart",
     region: "Tamil Nadu",
+    state: "Tamil Nadu",
     city: "Madurai",
     category: "Signature",
     served: "Cold",
@@ -73,6 +80,11 @@ const drinks = [
 
     shortDescription:
       "Madurai's legendary dessert drink made with milk, badam pisin, nannari syrup and ice cream.",
+
+    story:
+      "Jigarthanda is closely associated with Madurai, where its layered combination of milk, nannari syrup and badam pisin has become a beloved way to cool down on a hot afternoon.",
+
+    tasteProfile: ["Creamy", "Sweet", "Aromatic", "Refreshing"],
 
     longDescription:
       "Jigarthanda originated in Madurai and has become one of South India's most iconic beverages. The name literally translates to 'that which cools the heart'.",
@@ -113,6 +125,7 @@ const drinks = [
     name: "Kokum Sharbat",
     tagline: "The Coastal Summer Cooler",
     region: "Maharashtra",
+    state: "Maharashtra",
     city: "Konkan",
     category: "Sharbat",
     served: "Cold",
@@ -125,6 +138,11 @@ const drinks = [
 
     shortDescription:
       "A tangy, refreshing drink prepared using kokum fruit native to the Konkan coast.",
+
+    story:
+      "Kokum Sharbat carries the bright, tangy character of the Konkan coast. Kokum extract is traditionally prepared into a refreshing drink for warm days and shared meals.",
+
+    tasteProfile: ["Tangy", "Fruity", "Refreshing", "Lightly sweet"],
 
     longDescription:
       "Kokum has been used in western India for centuries to prepare refreshing summer beverages that aid digestion and cool the body.",

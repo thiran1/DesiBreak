@@ -3,6 +3,7 @@ const regions = [
     id: 1,
     state: "Telangana",
     slug: "telangana",
+    direction: "South",
     heroImage: "/images/regions/telangana.jpg",
     description:
       "Home to nutritious millet-based beverages that have fueled generations.",
@@ -14,6 +15,7 @@ const regions = [
     id: 2,
     state: "Tamil Nadu",
     slug: "tamil-nadu",
+    direction: "South",
     heroImage: "/images/regions/tamilnadu.jpg",
     description:
       "A rich culinary tradition with refreshing drinks crafted for tropical summers.",
@@ -25,6 +27,7 @@ const regions = [
     id: 3,
     state: "Maharashtra",
     slug: "maharashtra",
+    direction: "West",
     heroImage: "/images/regions/maharashtra.jpg",
     description:
       "The Konkan coast brings naturally cooling fruit-based beverages.",

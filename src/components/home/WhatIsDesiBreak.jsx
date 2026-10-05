@@ -1,91 +1,73 @@
 import { BRAND } from "../../config/brand";
+import SectionHeading from "../common/SectionHeading";
 
 export default function WhatIsDesiBreak() {
   return (
-    <section className="py-32 bg-white">
+    <section className="bg-white py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        
-        <div className="grid gap-20 lg:grid-cols-2 lg:gap-16 items-center">
-          
-          {/* Left: Brand Story */}
-          <div>
-            <p className="mb-4 font-semibold uppercase tracking-[0.35em] text-brand-secondary">
-              WHO WE ARE
-            </p>
-            
-            <h2 className="font-heading text-5xl text-brand-primary mb-8">
-              A Celebration of 
-              <br />
-              Indian Heritage
-            </h2>
-            
-            <p className="text-lg leading-8 text-stone-600 mb-6">
+
+        <SectionHeading
+          eyebrow="Who we are"
+          title="A celebration of Indian heritage"
+          description="Desi Break makes authentic regional beverages accessible while honoring the stories and craft behind every sip."
+          align="left"
+        />
+
+        <div className="mt-16 grid gap-12 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
+
+          <div className="space-y-8">
+            <p className="text-lg leading-8 text-stone-600">
               Every corner of India has beverages with stories—traditions passed down through generations, recipes shaped by climate and culture, and flavors unique to their regions.
             </p>
-            
-            <p className="text-lg leading-8 text-stone-600 mb-8">
+
+            <p className="text-lg leading-8 text-stone-600">
               <strong>Desi Break exists to celebrate and preserve these authentic regional beverages.</strong> We source directly from artisans, honor traditional preparation methods, and bring these signature drinks to a modern, accessible platform.
             </p>
-            
-            <div className="pt-6 border-t border-brand-border">
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand-secondary mb-6">
-                Our Core Values
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                {BRAND.values.map((value) => (
-                  <div key={value} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-1.5 h-1.5 bg-brand-highlight rounded-full mt-2.5" />
-                    <span className="font-semibold text-brand-primary">
-                      {value}
-                    </span>
-                  </div>
-                ))}
-              </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {BRAND.values.map((value) => (
+                <div key={value} className="rounded-3xl border border-brand-border bg-brand-light p-5">
+                  <p className="text-sm uppercase tracking-[0.35em] text-brand-secondary">
+                    {value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-          
-          {/* Right: Visual with stats or key message */}
-          <div className="bg-gradient-to-br from-brand-light to-white rounded-2xl p-12 border border-brand-border shadow-md">
-            
-            <div className="space-y-12">
-              
-              {/* Mission */}
+
+          <div className="rounded-[28px] border border-brand-border bg-brand-light p-10 shadow-card">
+            <div className="space-y-8">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand-secondary mb-3">
-                  Our Mission
+                <p className="text-sm uppercase tracking-[0.35em] text-brand-secondary mb-3">
+                  Our mission
                 </p>
                 <p className="text-xl leading-8 text-brand-primary font-semibold">
                   {BRAND.mission}
                 </p>
               </div>
-              
-              {/* Vision */}
+
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand-secondary mb-3">
-                  Our Vision
+                <p className="text-sm uppercase tracking-[0.35em] text-brand-secondary mb-3">
+                  Our vision
                 </p>
                 <p className="text-xl leading-8 text-brand-primary font-semibold">
                   {BRAND.vision}
                 </p>
               </div>
-              
-              {/* Positioning */}
-              <div className="pt-8 border-t border-brand-border">
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand-secondary mb-3">
-                  What We Stand For
+
+              <div className="rounded-[24px] border border-brand-border bg-white p-6">
+                <p className="text-sm uppercase tracking-[0.35em] text-brand-secondary mb-3">
+                  What we stand for
                 </p>
-                <p className="text-lg leading-8 text-stone-600">
-                  We're not just serving drinks. We're preserving culture, supporting artisans, and bringing the authentic tastes of India closer to you—one sip at a time.
+                <p className="text-base leading-7 text-stone-600">
+                  We preserve culture, support artisans, and bring authentic tastes from across India closer to modern drinkers.
                 </p>
               </div>
-              
             </div>
-            
           </div>
-          
+
         </div>
-        
+
       </div>
     </section>
   );

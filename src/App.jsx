@@ -5,10 +5,13 @@ import Home from './pages/Home'
 import { ExploreDrinks } from './pages/ExploreDrinks'
 import { DrinkDetails } from './pages/DrinkDetails'
 import { About } from './pages/About'
+import { OurStory } from './pages/OurStory'
 import { Franchise } from './pages/Franchise'
 import { Contact } from './pages/Contact'
+import { Stores } from './pages/Stores'
 import { NotFound } from './pages/NotFound'
 
+const ENABLE_FRANCHISE = false
 
 function App() {
   return (
@@ -18,10 +21,15 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/drinks" element={<ExploreDrinks />} />
             <Route path="/explore" element={<ExploreDrinks />} />
             <Route path="/drinks/:slug" element={<DrinkDetails />} />
             <Route path="/about" element={<About />} />
-            <Route path="/franchise" element={<Franchise />} />
+            <Route path="/about/story" element={<OurStory />} />
+            <Route path="/stores" element={<Stores />} />
+            {ENABLE_FRANCHISE && (
+              <Route path="/franchise" element={<Franchise />} />
+            )}
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,211 +1,106 @@
-import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Heart, Share2 } from 'lucide-react'
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, MapPin } from "lucide-react";
+import Container from "../components/common/Container";
+import DrinkGrid from "../components/drinks/DrinkGrid";
+import drinks from "../data/drinks";
 
 export function DrinkDetails() {
   const { slug } = useParams()
 
-  const drinks = {
-    'masala-chai': {
-      name: 'Masala Chai',
-      price: 3.99,
-      image: '🍵',
-      category: 'Hot Drinks',
-      description: 'Aromatic blend of black tea with traditional Indian spices',
-      fullDescription: 'Our signature Masala Chai is prepared using a traditional recipe passed down through generations. Made with premium black tea leaves and a carefully balanced blend of ginger, cardamom, cloves, and cinnamon, this warming beverage is perfect for any time of day.',
-      ingredients: ['Black Tea', 'Ginger', 'Cardamom', 'Cloves', 'Cinnamon', 'Milk', 'Sugar'],
-      benefits: ['Boosts Digestion', 'Anti-inflammatory', 'Energizing', 'Aids Immunity'],
-      servingSize: '8 oz',
-      calories: 45,
-      prepTime: '5 mins'
-    },
-    'lassi': {
-      name: 'Lassi',
-      price: 4.99,
-      image: '🥛',
-      category: 'Cold Drinks',
-      description: 'Creamy yogurt-based traditional drink with cardamom',
-      fullDescription: 'A refreshing and creamy yogurt-based drink that has been enjoyed in South Asia for centuries. Our Lassi is made with fresh yogurt, blended until smooth, and flavored with cardamom for an authentic taste.',
-      ingredients: ['Fresh Yogurt', 'Cardamom', 'Rose Water', 'Sugar', 'Water'],
-      benefits: ['Probiotic Rich', 'Cooling Effect', 'Aids Digestion', 'Hydrating'],
-      servingSize: '10 oz',
-      calories: 120,
-      prepTime: '2 mins'
-    },
-    'nimbu-pani': {
-      name: 'Nimbu Pani',
-      price: 2.99,
-      image: '🍋',
-      category: 'Cold Drinks',
-      description: 'Refreshing lime juice with mint and spices',
-      fullDescription: 'A tangy and refreshing drink made with fresh lime juice, mint, and a special blend of spices. Perfect for hot days, this traditional Indian drink is both delicious and health-promoting.',
-      ingredients: ['Fresh Lime Juice', 'Mint Leaves', 'Cumin', 'Salt', 'Black Salt', 'Water'],
-      benefits: ['Rich in Vitamin C', 'Cooling', 'Aids Digestion', 'Anti-inflammatory'],
-      servingSize: '12 oz',
-      calories: 15,
-      prepTime: '3 mins'
-    },
-    'turmeric-milk': {
-      name: 'Turmeric Milk',
-      price: 4.49,
-      image: '🥛',
-      category: 'Hot Drinks',
-      description: 'Golden milk with turmeric, ginger, and warming spices',
-      fullDescription: 'Also known as Golden Milk, this ancient wellness drink combines the power of turmeric with other warming spices. Perfect for relaxation and overall wellness.',
-      ingredients: ['Milk', 'Turmeric', 'Ginger', 'Cinnamon', 'Black Pepper', 'Honey'],
-      benefits: ['Anti-inflammatory', 'Boosts Immunity', 'Aids Sleep', 'Anti-oxidant'],
-      servingSize: '8 oz',
-      calories: 65,
-      prepTime: '5 mins'
-    },
-    'mango-lassi': {
-      name: 'Mango Lassi',
-      price: 5.49,
-      image: '🥭',
-      category: 'Cold Drinks',
-      description: 'Sweet mango blended with yogurt and cardamom',
-      fullDescription: 'Indulge in the sweetness of ripe mangoes blended with creamy yogurt and aromatic cardamom. This summer favorite is both refreshing and nutritious.',
-      ingredients: ['Fresh Mango', 'Yogurt', 'Cardamom', 'Rose Water', 'Sugar'],
-      benefits: ['Vitamin Rich', 'Probiotic', 'Cooling', 'Energy Boosting'],
-      servingSize: '10 oz',
-      calories: 180,
-      prepTime: '3 mins'
-    },
-    'jaljeera': {
-      name: 'Jaljeera',
-      price: 3.49,
-      image: '💧',
-      category: 'Cold Drinks',
-      description: 'Tangy cumin drink with mint and pomegranate seeds',
-      fullDescription: 'A street-style favorite from India, Jaljeera is a tangy and spiced drink that aids digestion. Made with cumin, mint, and pomegranate seeds for a burst of flavor.',
-      ingredients: ['Water', 'Roasted Cumin', 'Mint', 'Pomegranate Seeds', 'Lime Juice', 'Spices'],
-      benefits: ['Aids Digestion', 'Cooling', 'Rich in Antioxidants', 'Improves Appetite'],
-      servingSize: '10 oz',
-      calories: 25,
-      prepTime: '2 mins'
-    }
+
+  const drink = drinks.find((item) => item.slug === slug);
+
+  if (!drink) {
+    return (
+      <Container className="py-32 text-center">
+        <h1 className="font-heading text-5xl text-brand-primary">Drink not found</h1>
+        <Link to="/drinks" className="mt-8 inline-flex rounded-xl bg-brand-primary px-6 py-3 font-semibold text-brand-cream">
+          Back to drinks
+        </Link>
+      </Container>
+    );
   }
 
-  const drink = drinks[slug] || drinks['masala-chai']
-  const [isFavorite, setIsFavorite] = React.useState(false)
+  const recommendations = [...drinks]
+    .filter((item) => item.slug !== drink.slug)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
 
   return (
-    <div className="bg-brand-light min-h-screen">
-      {/* Header */}
-      <section className="bg-brand-primary text-brand-cream py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/explore" className="inline-flex items-center gap-2 hover:text-brand-secondary text-brand-cream/80 transition-colors">
-            <ArrowLeft size={20} />
-            Back to Drinks
+    <div className="bg-brand-light">
+      <section className="py-8">
+        <Container>
+          <Link to="/drinks" className="inline-flex items-center gap-2 font-semibold text-brand-primary">
+            <ArrowLeft aria-hidden="true" size={18} />
+            Back to drinks
           </Link>
-        </div>
+        </Container>
       </section>
 
-      {/* Main Content */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Image */}
-            <div className="bg-brand-primary/10 rounded-xl p-12 text-center h-96 flex items-center justify-center border border-brand-border">
-              <div className="text-9xl">{drink.image}</div>
+      <section className="pb-16">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+            <div className="overflow-hidden rounded-[28px] bg-white shadow-card">
+              <img src={drink.heroImage} alt={drink.name} className="aspect-[4/3] h-full w-full object-cover" />
             </div>
 
-            {/* Details */}
             <div>
-              <div className="mb-6">
-                <span className="bg-brand-secondary text-brand-cream px-4 py-2 rounded-xl text-sm font-semibold mb-4 inline-block shadow-sm">
-                  {drink.category}
-                </span>
-                <h1 className="font-heading text-5xl font-bold text-brand-primary mb-4">
-                  {drink.name}
-                </h1>
-                <p className="text-xl text-stone-600 mb-6 leading-relaxed">
-                  {drink.description}
-                </p>
-              </div>
-
-              {/* Price */}
-              <div className="bg-white p-6 rounded-xl mb-6 border border-brand-border shadow-card">
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl font-bold text-brand-primary">${drink.price}</span>
-                  <span className="text-brand-primary/40 line-through text-sm">${(drink.price * 1.2).toFixed(2)}</span>
-                </div>
-                <button className="w-full bg-brand-primary text-brand-cream py-4 rounded-xl font-semibold hover:bg-[#18482D] transition-colors mb-3 shadow-brand">
-                  Add to Cart
-                </button>
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => setIsFavorite(!isFavorite)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium transition-colors ${
-                      isFavorite
-                        ? 'bg-brand-secondary/15 text-brand-secondary'
-                        : 'bg-brand-light text-brand-primary hover:bg-brand-primary/5 border border-brand-border'
-                    }`}
-                  >
-                    <Heart size={20} fill={isFavorite ? 'currentColor' : 'none'} />
-                    {isFavorite ? 'Saved' : 'Save'}
-                  </button>
-                  <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-medium bg-brand-light text-brand-primary hover:bg-brand-primary/5 border border-brand-border transition-colors">
-                    <Share2 size={20} />
-                    Share
-                  </button>
-                </div>
-              </div>
-
-              {/* Quick Info */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
-                  <div className="text-brand-primary/60 text-xs mb-1">Prep Time</div>
-                  <div className="font-bold text-brand-primary">{drink.prepTime}</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
-                  <div className="text-brand-primary/60 text-xs mb-1">Serving</div>
-                  <div className="font-bold text-brand-primary">{drink.servingSize}</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl text-center border border-brand-border shadow-sm">
-                  <div className="text-brand-primary/60 text-xs mb-1">Calories</div>
-                  <div className="font-bold text-brand-primary">{drink.calories}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Description and Benefits */}
-          <div className="grid md:grid-cols-2 gap-8 mt-16">
-            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
-              <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">About This Drink</h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                {drink.fullDescription}
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-secondary">{drink.region}</p>
+              <h1 className="mt-4 font-heading text-5xl font-bold text-brand-primary md:text-6xl">{drink.name}</h1>
+              <p className="mt-5 text-xl italic leading-8 text-stone-600">{drink.tagline}</p>
+              <p className="mt-6 text-lg leading-8 text-stone-600">{drink.shortDescription}</p>
+              <p className="mt-6 inline-flex items-center gap-2 font-semibold text-brand-primary">
+                <MapPin aria-hidden="true" size={18} />
+                {[drink.city, drink.state].filter(Boolean).join(", ")}
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
 
-            <div className="bg-white p-8 rounded-xl border border-brand-border shadow-card">
-              <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">Health Benefits</h2>
-              <ul className="space-y-4">
-                {drink.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-3 text-stone-600">
-                    <span className="flex-shrink-0 w-5 h-5 bg-brand-primary text-brand-cream rounded-xl flex items-center justify-center text-xs font-bold shadow-sm">
-                      ✓
-                    </span>
-                    {benefit}
-                  </li>
+      <section className="bg-white py-4">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <DetailSection title="The story">
+              <p>{drink.story}</p>
+              {drink.culturalSignificance && <p className="mt-4">{drink.culturalSignificance}</p>}
+            </DetailSection>
+
+            <DetailSection title="Ingredients">
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {drink.ingredients.map((ingredient) => (
+                  <li key={ingredient} className="rounded-xl bg-brand-light px-4 py-3 text-brand-primary">{ingredient}</li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </DetailSection>
 
-          {/* Ingredients */}
-          <div className="mt-8 bg-white p-8 rounded-xl border border-brand-border shadow-card">
-            <h2 className="font-heading text-2xl font-bold text-brand-primary mb-4">Ingredients</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {drink.ingredients.map((ingredient, index) => (
-                <div key={index} className="bg-brand-light p-4 rounded-xl text-center border border-brand-border">
-                  <p className="text-brand-primary font-semibold">{ingredient}</p>
-                </div>
-              ))}
-            </div>
+            <DetailSection title="Traditional preparation"><p>{drink.preparation}</p></DetailSection>
+
+            <DetailSection title="Taste profile">
+              <div className="flex flex-wrap gap-3">
+                {drink.tasteProfile.map((taste) => (
+                  <span key={taste} className="rounded-full bg-brand-primary/10 px-4 py-2 font-semibold text-brand-primary">{taste}</span>
+                ))}
+              </div>
+            </DetailSection>
+
+            <DetailSection title="When it is enjoyed"><p>{drink.bestTime}</p></DetailSection>
           </div>
-        </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-secondary">Keep discovering</p>
+              <h2 className="mt-3 font-heading text-4xl font-bold text-brand-primary">Where will your next stop be?</h2>
+            </div>
+            <Link to="/stores" className="font-semibold text-brand-primary">Find Your Nearest Desi Break →</Link>
+          </div>
+          <DrinkGrid drinks={recommendations} />
+        </Container>
       </section>
     </div>
-  )
+  );
 }

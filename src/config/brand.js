@@ -38,10 +38,9 @@ export const BRAND = {
   // Navigation Links
   navigation: [
     { name: "Home", path: "/" },
-    { name: "Explore", path: "/explore" },
-    { name: "About", path: "/about" },
-    { name: "Franchise", path: "/franchise" },
-    { name: "Contact", path: "/contact" }
+    { name: "Explore Drinks", path: "/drinks" },
+    { name: "Find a Store", path: "/stores" },
+    { name: "About", path: "/about" }
   ],
   
   // Social Links
@@ -63,14 +62,17 @@ export const BRAND = {
   colors: {
     primary: "#1F5C3A",      // Forest Green
     background: "#F6F1E7",   // Heritage Cream
-    accent: "#B85C38",       // Terracotta
-    highlight: "#D4A017",    // Muted Gold
+    accent: "#907E4C",       // Muted olive / earthy green-brown badge border
+    highlight: "#907E4C",
+    badgeBorder: "#907E4C",
   },
   
   // Typography
   typography: {
-    heading: "'Playfair Display', serif",
-    body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    logo: "'Perpetua MT Std', 'Perpetua', Georgia, serif",
+    heading: "'Perpetua MT Std', 'Perpetua', Georgia, serif",
+    tagline: "Candara, 'Trebuchet MS', sans-serif",
+    body: "Candara, 'Trebuchet MS', sans-serif"
   },
   
   // Footer

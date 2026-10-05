@@ -138,25 +138,27 @@ export function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-brand-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-4xl font-bold text-center text-brand-primary mb-12">Our Leadership Team</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl border border-brand-border overflow-hidden shadow-card hover:shadow-hover transition-all">
-                <div className="bg-brand-primary/10 h-40 flex items-center justify-center text-5xl">
-                  👤
+      {false && (
+        <section className="py-20 bg-brand-light">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-heading text-4xl font-bold text-center text-brand-primary mb-12">Our Leadership Team</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {team.map((member, index) => (
+                <div key={index} className="bg-white rounded-xl border border-brand-border overflow-hidden shadow-card hover:shadow-hover transition-all">
+                  <div className="bg-brand-primary/10 h-40 flex items-center justify-center text-5xl">
+                    👤
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-heading text-xl font-bold text-brand-primary mb-1">{member.name}</h3>
+                    <p className="text-brand-secondary font-bold mb-3">{member.role}</p>
+                    <p className="text-stone-600 text-sm leading-relaxed">{member.bio}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-bold text-brand-primary mb-1">{member.name}</h3>
-                  <p className="text-brand-secondary font-bold mb-3">{member.role}</p>
-                  <p className="text-stone-600 text-sm leading-relaxed">{member.bio}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Stats */}
       <section className="py-20 bg-brand-primary text-brand-cream">

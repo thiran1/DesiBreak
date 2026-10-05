@@ -40,6 +40,14 @@ export function usePageMeta({
     }
     updateMetaTag('og:url', `https://desibreak.in${path}`);
 
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://desibreak.in${path}`);
+
     // Update Twitter meta tags
     const updateTwitterTag = (name, content) => {
       let tag = document.querySelector(`meta[name="${name}"]`);
